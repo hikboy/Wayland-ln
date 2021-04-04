@@ -15,6 +15,9 @@ int main( int argc, char* args[] )
     //The surface contained by the window
     SDL_Surface* screenSurface = NULL;
 
+    SDL_Cursor* cursor;
+
+
     //Initialize SDL
     if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
     {
@@ -40,6 +43,10 @@ int main( int argc, char* args[] )
 
             //Update the surface
             SDL_UpdateWindowSurface( window );
+
+            cursor = SDL_CreateSystemCursor(SDL_SYSTEM_CURSOR_HAND);
+
+            SDL_SetCursor(cursor);
 
             //Wait ten seconds
             SDL_Delay( 10000 );

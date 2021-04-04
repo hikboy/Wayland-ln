@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <errno.h>
 #include <wayland-client.h>
 
 struct wl_display *display = NULL;
@@ -8,8 +9,8 @@ int main(int argc, char **argv) {
 
     display = wl_display_connect(NULL);
     if (display == NULL) {
-	fprintf(stderr, "Can't connect to display\n");
-	exit(1);
+        fprintf(stderr, "Can't connect to display %d\n", errno);
+        exit(1);
     }
     printf("connected to display\n");
 
