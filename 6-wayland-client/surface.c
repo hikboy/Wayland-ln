@@ -43,8 +43,8 @@ int main(int argc, char **argv) {
 
     display = wl_display_connect(NULL);
     if (display == NULL) {
-	fprintf(stderr, "Can't connect to display\n");
-	exit(1);
+        fprintf(stderr, "Can't connect to display\n");
+        exit(1);
     }
     printf("connected to display\n");
 
@@ -55,31 +55,33 @@ int main(int argc, char **argv) {
     wl_display_roundtrip(display);
 
     if (compositor == NULL) {
-	fprintf(stderr, "Can't find compositor\n");
-	exit(1);
+        fprintf(stderr, "Can't find compositor\n");
+        exit(1);
     } else {
-	fprintf(stderr, "Found compositor\n");
+        fprintf(stderr, "Found compositor\n");
     }
 
     surface = wl_compositor_create_surface(compositor);
     if (surface == NULL) {
-	fprintf(stderr, "Can't create surface\n");
-	exit(1);
+        fprintf(stderr, "Can't create surface\n");
+        exit(1);
     } else {
-	fprintf(stderr, "Created surface\n");
+        fprintf(stderr, "Created surface\n");
     }
 
     if (shell == NULL) {
-	fprintf(stderr, "Haven't got a Wayland shell\n");
-	exit(1);
+        fprintf(stderr, "Haven't got a Wayland shell\n");
+        exit(1);
     }
+    
     shell_surface = wl_shell_get_shell_surface(shell, surface);
     if (shell_surface == NULL) {
-	fprintf(stderr, "Can't create shell surface\n");
-	exit(1);
+        fprintf(stderr, "Can't create shell surface\n");
+        exit(1);
     } else {
-	fprintf(stderr, "Created shell surface\n");
+        fprintf(stderr, "Created shell surface\n");
     }
+
     wl_shell_surface_set_toplevel(shell_surface);
 
     wl_display_disconnect(display);
