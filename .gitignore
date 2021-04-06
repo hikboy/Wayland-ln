@@ -53,6 +53,8 @@ dkms.conf
 
 demage
 window
+window2
+window3
 surface
 registry
 seat
